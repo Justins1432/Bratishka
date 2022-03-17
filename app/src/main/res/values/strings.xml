@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Bratishka</string>
+
+    <!--Окно авторизации -->
+    <string name="number_phone">Телефон</string>
+    <string name="password">Пароль</string>
+    <string name="forgot_password">ЗАБЫЛ ПАРОЛЬ</string>
+    <string name="sign_in">ВОЙТИ</string>
+    <string name="registration">РЕГИСТРАЦИЯ</string>
+
+    <!--Окно восстановления пароля -->
+    <string name="change_pass_text">СМЕНИТЬ ПАРОЛЬ</string>
+    <string name="code_text">Код</string>
+    <string name="get_the_code_text"><u>Получить код</u></string>
+    <string name="forgot_txt_information">Вам придет код в смс сообщении по вашему номеру</string>
+    <string name="new_input_new_pass_text">Новый пароль</string>
+    <string name="repeat_the_pass_text">Повторите пароль</string>
+    <string name="apply_text">Применить</string>
+
+    <string name="text_null">Поле пустое!</string>
+
+    <!--Окна регистрации -->
+    <string name="input_number_for_registration">Введитe ваш номер телефона для регистрации</string>
+    <string name="get_the_code_btn">Получить код</string>
+    <string name="registration_window">РЕГИСТРАЦИЯ</string>
+    <string name="check_number">Подтвердите номер</string>
+    <string name="input_code">Введите код полученный по SMS на номер</string>
+    <string name="not_code_received">Если SMS не пришла, вы можете запросить код повторно</string>
+    <string name="change_number"><u>Изменить номер телефона</u></string>
+    <string name="rules_and_confidentiality">Я ознакомился с правилами, политикой конфиденциальности и принимаю их условия</string>
+
+    <!-- Окно выбора города -->
+    <string name="select_city">Выберите город</string>
+    <string name="search">Поиск</string>
+    <string name="title_activity_main_menu_app">MainMenuApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!--Главное меню -->
+    <string name="entry">Запись</string>
+    <string name="branches">Филиалы</string>
+    <string name="profile">Профиль</string>
+    <string name="my_notes">Мои записи</string>
+
+
+</resources>

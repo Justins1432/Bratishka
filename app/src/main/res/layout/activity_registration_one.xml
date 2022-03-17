@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.registration.RegistrationActivityOne">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check_number"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_code"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/goToRegTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="88005553535"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:onClick="goToRegTwo"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376">
+
+        <EditText
+            android:id="@+id/numberOne"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/text_color_auth"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_auth"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/numberTwo"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/text_color_auth"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_auth"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/numberThree"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/text_color_auth"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_auth"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <EditText
+            android:id="@+id/numberFour"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/text_color_auth"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_auth"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_code_received"
+            android:textAlignment="center"
+            android:textColor="@color/text_color_auth"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/checkNumberPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/change_number"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
