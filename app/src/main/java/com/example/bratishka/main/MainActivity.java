@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.buttonSignIn.setOnClickListener(view -> {
+            //Вход в личный кабинет
+
             Intent intent = new Intent(MainActivity.this, SelectCityActivity.class);
             startActivity(intent);
         });

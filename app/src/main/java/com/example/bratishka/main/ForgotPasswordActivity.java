@@ -56,7 +56,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private void buttonApply() {
         this.buttonApply.setOnClickListener(view -> {
-
+            //Восстановление доступа
         });
     }
 

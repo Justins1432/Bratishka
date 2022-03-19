@@ -45,6 +45,9 @@ public class RegistrationActivityOne extends AppCompatActivity {
 
     private void checkNumberPhone(){
         this.textViewCheckNumber.setOnClickListener(view -> {
+            //Получение кода регистрации
+            //Ввод кода регистрации
+            //Переход на другую активити
             Intent intent = new Intent(RegistrationActivityOne.this, RegistrationActivity.class);
             startActivity(intent);
         });

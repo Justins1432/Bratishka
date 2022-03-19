@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="0.13">
 
         <EditText
+            android:id="@+id/id_registration_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/text_color_auth"
@@ -43,6 +44,7 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_password_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -62,6 +64,7 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_repeat_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -75,6 +78,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
+            android:id="@+id/id_checkbox_rules"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -86,6 +90,7 @@
             android:theme="@style/CheckBox"/>
 
         <Button
+            android:id="@+id/id_btn_registration"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:text="@string/registration"

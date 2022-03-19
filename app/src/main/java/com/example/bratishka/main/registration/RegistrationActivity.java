@@ -38,6 +38,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void getButtonCode() {
         this.buttonGetCode.setOnClickListener(view -> {
+            //Ввод номера телефона
+            //Отправка запроса на сервер
+            //Переход на другое окно регистрации
+
             Intent intent = new Intent(RegistrationActivity.this, RegistrationActivityOne.class);
             finish();
             startActivity(intent);
