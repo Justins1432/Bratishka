@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bratishka</string>
+    <string name="app_name">Братишка</string>
 
     <!--Окно авторизации -->
     <string name="number_phone">Телефон</string>
@@ -42,6 +42,7 @@
     <string name="branches">Филиалы</string>
     <string name="profile">Профиль</string>
     <string name="my_notes">Мои записи</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
 
 
 </resources>

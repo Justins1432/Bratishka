@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/entry_id">
+
+    <fragment
+        android:id="@+id/entry_id"
+        android:name="com.example.bratishka.ui.branches.BranchesFragment"
+        android:label="@string/entry"
+        tools:layout="@layout/fragment_branches" />
+
+    <fragment
+        android:id="@+id/branches_id"
+        android:name="com.example.bratishka.ui.entry.EntryFragment"
+        android:label="@string/branches"
+        tools:layout="@layout/fragment_entry" />
+
+    <fragment
+        android:id="@+id/profile_id"
+        android:name="com.example.bratishka.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment android:id="@+id/my_notes_id"
+        android:name="com.example.bratishka.ui.mynotes.MyNotesFragment"
+        android:label="@string/my_notes"
+        tools:layout="@layout/fragment_my_notes"/>
+
+</navigation>

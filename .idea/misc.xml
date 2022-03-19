@@ -10,6 +10,7 @@
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/drawable/rectangle_splashscreen.xml" value="0.167" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_main_menu.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_main_menu_app.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_registration.xml" value="0.33" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_registration_one.xml" value="0.33" />
@@ -17,7 +18,12 @@
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_select_city.xml" value="0.33" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_select_city2.xml" value="0.1" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_dashboard.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_home.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_main.xml" value="0.2930253623188406" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_my_notes.xml" value="0.2930253623188406" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_notifications.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/fragment_profile.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/toolbar_select_city.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/toolbar_title_forgot_pass.xml" value="0.16" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/toolbar_title_registration.xml" value="0.317481884057971" />

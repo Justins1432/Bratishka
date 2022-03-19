@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainMenu"
+        android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:title="Главное меню"/>
+
+</menu>

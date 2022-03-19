@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bratishka"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.mynotes.MyNotesFragment"
+            android:exported="false" />
+        <activity
+            android:name=".main.MainMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main_menu" />
         <activity
             android:name=".selectcity.SelectCityActivity"
             android:exported="false" />
