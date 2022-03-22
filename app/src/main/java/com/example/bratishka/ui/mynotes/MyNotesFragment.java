@@ -1,5 +1,7 @@
 package com.example.bratishka.ui.mynotes;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -26,7 +28,16 @@ public class MyNotesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my_notes, container, false);
+        View root =  inflater.inflate(R.layout.fragment_my_notes, container, false);
+
+        initComponents();
+
+        return root;
+    }
+
+    private void initComponents(){
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setCustomView(R.layout.toolbar_title_mynotes_fragment);
     }
 
     @Override

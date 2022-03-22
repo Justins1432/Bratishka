@@ -20,5 +20,4 @@
         android:icon="@drawable/my_notes"
         android:title="@string/my_notes"/>
 
-
 </menu>

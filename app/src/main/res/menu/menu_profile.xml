@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mainMenu"
-        android:icon="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:title="Главное меню"
+        android:id="@+id/edit_profile_id"
+        android:icon="@drawable/edit_profile"
+        android:title="@string/edit_profile_user"
         app:showAsAction="always"/>
 
 </menu>

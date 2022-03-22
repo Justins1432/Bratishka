@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+            <stroke android:width="10dp"
+                android:color="@color/splashscreen"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_baseline_camera_alt_24"
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp" />
+</layer-list>

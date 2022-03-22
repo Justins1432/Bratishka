@@ -32,17 +32,30 @@
     <!-- Окно выбора города -->
     <string name="select_city">Выберите город</string>
     <string name="search">Поиск</string>
-    <string name="title_activity_main_menu_app">MainMenuApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <!--Главное меню -->
     <string name="entry">Запись</string>
     <string name="branches">Филиалы</string>
     <string name="profile">Профиль</string>
     <string name="my_notes">Мои записи</string>
-    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_main_menu">Главное меню</string>
 
+    <!--Фрагмент "Запись -->
+    <string name="haircuts">Стрижки</string>
+    <string name="shop">Магазин</string>
+
+    <!--Фрагмент "Профиль" -->
+    <string name="name">Имя</string>
+    <string name="patronimyc">Отчество</string>
+    <string name="surname">Фамилия</string>
+    <string name="email">Email</string>
+    <string name="number_phone_user">Номер телефона</string>
+    <string name="city">Город</string>
+    <string name="date_birth">Дата рождения</string>
+    <string name="edit_profile_user">Редактировать профиль</string>
+    <string name="editing">Редактирование</string>
+    <string name="exit_app">Выйти</string>
+    <string name="change_pass_profile">Сменить пароль</string>
+    <string name="save">Сохранить</string>
 
 </resources>
