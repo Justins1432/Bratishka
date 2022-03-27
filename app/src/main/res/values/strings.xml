@@ -58,4 +58,9 @@
     <string name="change_pass_profile">Сменить пароль</string>
     <string name="save">Сохранить</string>
 
+    <!--Окно Филиалы -->
+    <string name="list_cities">Список</string>
+    <string name="map_branches">На карте</string>
+    <string name="address_branches">Адрес</string>
+
 </resources>

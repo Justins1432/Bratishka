@@ -3,6 +3,7 @@ package com.example.bratishka.selectcity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -13,7 +14,13 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.example.bratishka.R;
+import com.example.bratishka.adapter.BranchesAdapter;
 import com.example.bratishka.main.MainMenuActivity;
+import com.example.bratishka.model.Branch;
+import com.example.bratishka.repository.BranchesRepository;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class SelectCityActivity extends AppCompatActivity {
     private EditText searchCity;
@@ -34,6 +41,20 @@ public class SelectCityActivity extends AppCompatActivity {
 
         this.searchCity = findViewById(R.id.search_cities);
         this.recyclerViewCities = findViewById(R.id.recycler_view_select_city);
+
+        initRecyclerViewBranchesAddress();
+    }
+
+    private void initRecyclerViewBranchesAddress(){
+        /*try {
+            BranchesRepository repository = new BranchesRepository(this);
+            ArrayList<Branch> branches = repository.getBranches();
+            this.recyclerViewCities.setLayoutManager(new LinearLayoutManager(this));
+            this.recyclerViewCities.setAdapter(new BranchesAdapter(branches));
+        }catch (IOException e){
+            e.printStackTrace();
+        }*/
+
 
     }
 
