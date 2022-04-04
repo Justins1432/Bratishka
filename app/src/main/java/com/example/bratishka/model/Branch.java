@@ -54,7 +54,8 @@ public class Branch {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Branch branch = (Branch) o;
-        return Double.compare(branch.longitude, longitude) == 0 && Double.compare(branch.latitude, latitude) == 0 && idResource == branch.idResource && address.equals(branch.address);
+        return Double.compare(branch.longitude, longitude) == 0 && Double.compare(branch.latitude, latitude) == 0
+                && idResource == branch.idResource && address.equals(branch.address);
     }
 
     @Override

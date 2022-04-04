@@ -71,7 +71,7 @@
                 android:hint="@string/repeat_the_pass_text"
                 android:inputType="textPassword"
                 android:textColor="@color/white"
-                android:textColorHint="@color/text_color_auth"
+                android:textColorHint="@color/white"
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck" />
 
@@ -95,7 +95,8 @@
             android:layout_height="65dp"
             android:text="@string/registration"
             android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

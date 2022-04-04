@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/entry_id"
         android:name="com.example.bratishka.ui.entry.EntryFragment"
-        tools:layout="@layout/fragment_entry" />
+        tools:layout="@layout/fragment_entry"
+        />
 
     <fragment
         android:id="@+id/branches_id"

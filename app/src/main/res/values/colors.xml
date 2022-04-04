@@ -12,6 +12,6 @@
     <color name="rectangle">#FFEE00</color>
     <color name="text_color_auth">#8A8A8F</color>
     <color name="text_button_color_sign">#0E4296</color>
-
+    <color name="branches_color_night">#38453b</color>
 
 </resources>

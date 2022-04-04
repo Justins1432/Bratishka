@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:text="@string/haircuts"
+        android:text="@string/change_pass_text"
         android:textAlignment="center"
-        android:layout_marginLeft="25dp"/>
+        android:layout_marginRight="30dp"/>
 
 </LinearLayout>

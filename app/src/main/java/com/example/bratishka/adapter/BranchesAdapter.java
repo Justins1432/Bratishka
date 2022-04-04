@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.BranchesViewHolder> {
     private ArrayList<Branch> branches;
+    private ArrayList<String> discount = new ArrayList<>();
+    private ArrayList<String> textDiscount = new ArrayList<>();
 
     public BranchesAdapter(ArrayList<Branch> branches) {
         this.branches = branches;

@@ -38,7 +38,8 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutEntry"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/white"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerEntry"
