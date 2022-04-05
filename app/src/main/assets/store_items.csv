@@ -1,0 +1,6 @@
+type;price;description;rating;resource
+Шампунь;600 Р;ШАМПУНЬ ALPHA HOME;5.0;shampoo_alpha
+Масло;600 Р;МАСЛО ДЛЯ БОРОДЫ ALPHA HOME;4.8;beard_oil
+Пудра;600 Р;ПУДРА ALPHA HOME;4.7;hair_powder
+Сумка;3000 Р;СУМКА БРАТИШКА ИЗ НАТУРАЛЬНОЙ КОЖИ;4.9;bag_bratishka
+Нарды;13000 Р;НАРДЫ ОТ БРАТИШКИ;5.0;backgammon

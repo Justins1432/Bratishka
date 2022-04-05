@@ -45,6 +45,15 @@
     <string name="shop">Магазин</string>
     <string name="shop_basket">Корзина</string>
     <string name="notifications">Уведомления</string>
+    <string name="price">Цена</string>
+    <string name="name_haircuts">Название</string>
+    <string name="description">Описание</string>
+    <string name="type_product">Тип</string>
+    <string name="name_product">Наименование</string>
+    <string name="rating_product">0.0</string>
+    <string name="description_product">Описание</string>
+    <string name="my_basket">Моя корзина</string>
+    <string name="my_notifications">Уведомления</string>
 
     <!--Фрагмент "Профиль" -->
     <string name="name">Имя</string>
@@ -64,7 +73,5 @@
     <string name="list_cities">Список</string>
     <string name="map_branches">На карте</string>
     <string name="address_branches">Адрес</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

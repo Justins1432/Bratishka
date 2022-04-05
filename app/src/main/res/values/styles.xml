@@ -3,4 +3,9 @@
     <style name="circle_edit_photo_user" parent="">
         <item name="cornerSize">60%</item>
     </style>
+
+    <style name="MyTabLayoutTextAppearance"
+        parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

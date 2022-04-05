@@ -1,5 +1,6 @@
 package com.example.bratishka.ui.entry;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -7,8 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import com.example.bratishka.R;
 import com.example.bratishka.adapter.DiscountsAdapter;
 import com.example.bratishka.adapter.ViewPagerEntryAdapter;
@@ -26,7 +24,9 @@ import com.example.bratishka.databinding.FragmentEntryBinding;
 import com.example.bratishka.model.Discount;
 import com.example.bratishka.repository.DiscountsRepository;
 import com.example.bratishka.ui.entry.uientry.HaircutsFragments;
+import com.example.bratishka.ui.entry.uientry.MyNotificationsActivity;
 import com.example.bratishka.ui.entry.uientry.ShopFragment;
+import com.example.bratishka.ui.entry.uientry.ShoppingCartActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
@@ -38,10 +38,6 @@ public class EntryFragment extends Fragment {
     private ViewPager viewPager;
 
     private FragmentEntryBinding binding;
-
-    /*private ArrayList<String> nDiscount = new ArrayList<>();
-    private ArrayList<String> textDiscount = new ArrayList<>();
-    private ArrayList<String> imageDiscount = new ArrayList<>();*/
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -55,17 +51,6 @@ public class EntryFragment extends Fragment {
         this.tabLayout = root.findViewById(R.id.tabLayoutEntry);
         this.viewPager = root.findViewById(R.id.viewPagerEntry);
         this.recyclerView = root.findViewById(R.id.recycler_view_promotion_and_discounts);
-
-        /*this.nDiscount.add("АКЦИЯ");
-        this.textDiscount.add("20% скидка на стрижку");
-
-        this.nDiscount.add("СКИДКА");
-        this.textDiscount.add("5 посещение бесплатно");
-
-        LinearLayoutManager manager = new LinearLayoutManager(root.getContext(), LinearLayoutManager.HORIZONTAL, false);
-        this.recyclerView.setLayoutManager(manager);
-        DiscountsAdapter adapterDiscounts = new DiscountsAdapter(root.getContext(), nDiscount, textDiscount, imageDiscount);
-        this.recyclerView.setAdapter(adapterDiscounts);*/
 
         try {
             DiscountsRepository repository = new DiscountsRepository(root.getContext());
@@ -108,11 +93,13 @@ public class EntryFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.shoppingBasket_id) {
-            Toast.makeText(getContext(), "Корзина товаров", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), ShoppingCartActivity.class);
+            startActivity(intent);
         }
 
         if (item.getItemId() == R.id.notifications_id) {
-            Toast.makeText(getContext(), "Уведомления", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), MyNotificationsActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
