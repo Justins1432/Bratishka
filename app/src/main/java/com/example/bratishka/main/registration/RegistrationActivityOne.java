@@ -3,19 +3,28 @@ package com.example.bratishka.main.registration;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bratishka.R;
+import com.example.bratishka.model.Resp;
+import com.example.bratishka.repository.NetworkService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegistrationActivityOne extends AppCompatActivity {
-    private EditText number1, number2, number3, number4;
-    private TextView textViewCheckNumber;
-
+    private EditText number;
+    private TextView textViewReturn;
+    private Button btnReviewCode;
     private TextView textView;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,32 +33,57 @@ public class RegistrationActivityOne extends AppCompatActivity {
         initComponents();
     }
 
+
+
     private void initComponents() {
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_registration_1);
 
-        this.number1 = findViewById(R.id.numberOne);
-        this.number2 = findViewById(R.id.numberTwo);
-        this.number3 = findViewById(R.id.numberThree);
-        this.number4 = findViewById(R.id.numberFour);
-        this.textViewCheckNumber = findViewById(R.id.checkNumberPhone);
+        this.number = findViewById(R.id.code_Reg);
+        this.textViewReturn = findViewById(R.id.checkEmail);
+        this.btnReviewCode = findViewById(R.id.inCode);
+        this.textView = findViewById(R.id.txtEmail_Regis);
 
-        this.textView = findViewById(R.id.goToRegTwo);
-        this.textView.setOnClickListener(view -> {
-            Intent intent = new Intent(RegistrationActivityOne.this, RegistrationActivityTwo.class);
-            startActivity(intent);
+
+
+        this.textViewReturn.setOnClickListener(view -> {
+            finish();
         });
 
-        checkNumberPhone();
+        checkEmail();
     }
 
-    private void checkNumberPhone(){
-        this.textViewCheckNumber.setOnClickListener(view -> {
-            //Получение кода регистрации
-            //Ввод кода регистрации
-            //Переход на другую активити
-            Intent intent = new Intent(RegistrationActivityOne.this, RegistrationActivity.class);
-            startActivity(intent);
+    private void checkEmail(){
+        Bundle arguments = getIntent().getExtras();
+        String email = arguments.getString("email");
+        this.textView.setText(email);
+
+        this.btnReviewCode.setOnClickListener(view -> {
+            String code = this.number.getText().toString();
+            NetworkService.getInstance()
+                    .getBratishkaApi()
+                    .getReview(email, code)
+                    .enqueue(new Callback<Resp>() {
+                        @Override
+                        public void onResponse(Call<Resp> call, Response<Resp> response) {
+                            Resp resp = response.body();
+
+                            if (resp.getStatus().equals("OK")){
+                                Intent intent = new Intent(RegistrationActivityOne.this, RegistrationActivityTwo.class);
+                                intent.putExtra("email", email);
+                                intent.putExtra("code", code);
+                                startActivity(intent);
+                            }else {
+                                Toast.makeText(RegistrationActivityOne.this, "Неверный код!", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Resp> call, Throwable t) {
+                            Toast.makeText(RegistrationActivityOne.this, "Error!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
     }
 

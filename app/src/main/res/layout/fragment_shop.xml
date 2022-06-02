@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.entry.uientry.ShopFragment">
+    tools:context=".ui.entry.uientry.shop.ShopFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -18,16 +18,18 @@
         android:orientation="vertical">
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout_store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tabLayout_store"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
             app:tabTextColor="@color/splashscreen"
-            app:tabTextAppearance="@style/MyTabLayoutTextAppearance" />
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager_store"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/viewPager_store"/>
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 

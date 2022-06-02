@@ -8,8 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +23,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/address_branches"
                 android:textColor="@color/black"
-                android:textSize="14sp"/>
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

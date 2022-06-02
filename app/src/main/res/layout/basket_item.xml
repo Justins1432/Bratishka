@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="185dp"
+    >
+
+    <ImageView
+        android:id="@+id/imageProductBasket"
+        android:layout_width="109dp"
+        android:layout_height="109dp"
+        android:background="@color/rectangle" />
+
+    <TextView
+        android:id="@+id/descriptionProductBasket"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="120dp"
+        android:text="Название"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:text="Шампунь"
+        android:textSize="14sp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="75dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#E0E0E1">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_minus"
+            android:src="@drawable/minus"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="#E0E0E1"
+            android:textColor="@color/splashscreen"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_plus"
+            android:src="@drawable/plus"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="140dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="400"
+        android:gravity="right"/>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="167dp"
+        android:text="@string/roubles"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+</androidx.cardview.widget.CardView>

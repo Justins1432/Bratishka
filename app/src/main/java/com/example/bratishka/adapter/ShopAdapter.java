@@ -16,12 +16,13 @@ import com.example.bratishka.R;
 import com.example.bratishka.model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     private Context context;
-    private ArrayList<Product> products;
+    private List<Product> products;
 
-    public ShopAdapter(Context context, ArrayList<Product> products){
+    public ShopAdapter(Context context, List<Product> products){
         this.context = context;
         this.products = products;
     }
@@ -37,8 +38,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     @Override
     public void onBindViewHolder(@NonNull ShopViewHolder holder, int position) {
         Product product = this.products.get(position);
-
-        Glide.with(context).asBitmap().load(product.getIdResource()).into(holder.imageViewProduct);
+        Glide.with(context).asBitmap().load(product.getIcon()).into(holder.imageViewProduct);
         holder.textViewPriceProduct.setText(product.getPrice());
         holder.textViewTypeProduct.setText(product.getType());
         holder.textViewDescriptionProduct.setText(product.getDescription());

@@ -17,12 +17,13 @@ import com.example.bratishka.R;
 import com.example.bratishka.model.Haircut;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HaircutsAdapter extends RecyclerView.Adapter<HaircutsAdapter.HaircutsViewHolder> {
-    private ArrayList<Haircut> haircuts;
+    private List<Haircut> haircuts;
     private Context context;
 
-    public HaircutsAdapter(Context context, ArrayList<Haircut> haircuts) {
+    public HaircutsAdapter(Context context, List<Haircut> haircuts) {
         this.context = context;
         this.haircuts = haircuts;
     }
@@ -38,12 +39,9 @@ public class HaircutsAdapter extends RecyclerView.Adapter<HaircutsAdapter.Haircu
     @Override
     public void onBindViewHolder(@NonNull HaircutsViewHolder holder, int position) {
         Haircut haircut = haircuts.get(position);
-
         holder.textViewPrice.setText(haircut.getPrice());
         holder.textViewNameHaircuts.setText(haircut.getName());
-
-        Glide.with(context).asBitmap().load(haircut.getIdResource()).into(holder.imageView);
-
+        Glide.with(context).asBitmap().load(haircut.getIcon()).into(holder.imageView);
         /*holder.layout.setOnClickListener(view -> {
 
         });*/

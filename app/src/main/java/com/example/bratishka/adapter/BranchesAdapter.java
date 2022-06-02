@@ -1,5 +1,6 @@
 package com.example.bratishka.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,13 @@ import com.example.bratishka.R;
 import com.example.bratishka.model.Branch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.BranchesViewHolder> {
-    private ArrayList<Branch> branches;
-    private ArrayList<String> discount = new ArrayList<>();
-    private ArrayList<String> textDiscount = new ArrayList<>();
-
-    public BranchesAdapter(ArrayList<Branch> branches) {
+    private List<Branch> branches;
+    private Context context;
+    public BranchesAdapter(Context context, List<Branch> branches) {
+        this.context = context;
         this.branches = branches;
     }
 
@@ -33,7 +34,7 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
     @Override
     public void onBindViewHolder(@NonNull BranchesViewHolder holder, int position) {
         Branch branch = this.branches.get(position);
-        holder.textView.setText(branch.getAddress());
+        holder.textView.setText(branch.getStreet());
     }
 
     @Override

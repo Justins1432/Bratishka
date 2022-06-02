@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/input_number_for_registration"
+            android:text="@string/input_email_for_registration"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/text_color_auth"
-            android:hint="@string/number_phone"
-            android:inputType="number"
+            android:hint="@string/email"
+            android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="@color/text_color_auth"
             tools:ignore="TouchTargetSizeCheck" />

@@ -20,13 +20,13 @@
     <string name="text_null">Поле пустое!</string>
 
     <!--Окна регистрации -->
-    <string name="input_number_for_registration">Введитe ваш номер телефона для регистрации</string>
+    <string name="input_email_for_registration">Введитe вашу электронную почту для регистрации</string>
     <string name="get_the_code_btn">Получить код</string>
     <string name="registration_window">РЕГИСТРАЦИЯ</string>
-    <string name="check_number">Подтвердите номер</string>
-    <string name="input_code">Введите код полученный по SMS на номер</string>
-    <string name="not_code_received">Если SMS не пришла, вы можете запросить код повторно</string>
-    <string name="change_number"><u>Изменить номер телефона</u></string>
+    <string name="check_email">Подтвердите почту</string>
+    <string name="input_code">Введите код полученный по электронной почте</string>
+    <string name="not_code_received">Если код не пришёл, вы можете запросить код повторно</string>
+    <string name="change_number"><u>Изменить электронную почту</u></string>
     <string name="rules_and_confidentiality">Я ознакомился с правилами, политикой конфиденциальности и принимаю их условия</string>
 
     <!-- Окно выбора города -->
@@ -54,6 +54,23 @@
     <string name="description_product">Описание</string>
     <string name="my_basket">Моя корзина</string>
     <string name="my_notifications">Уведомления</string>
+    <string name="pay">Оплатить</string>
+    <string name="promo_code">Промокод</string>
+    <string name="use_bonus">Воспользоваться бонусами</string>
+    <string name="entry_haircut">Записаться</string>
+    <string name="info_product_descr">
+        1.ДОРОГО!
+        Сходу нe соглашусь, нет, конечно если сравнивать c эконом парихмахерскими, то может будет
+        и дорого, но ты же не приходишь в кафе и не говоришь, что тут дороже, чем в Пятерочке
+        за углом. Стоимость стрижки в Барбершопе Братишка составляет 500 рублей.
+        В эту стоимость входит: помывка головы (дважды!), подбор индивидуальной прически по форме
+        черепа, рекомендация от мастера, а так же укладка и в итоге ты уходишь с идеально
+        подобранной стрижкой и хорошим настроением.
+    </string>
+
+    <string name="add_basket">Добавить в корзину</string>
+    <string name="checkout">Оформить заказ</string>
+    <string name="go_to_payment">Перейти к оплате</string>
 
     <!--Фрагмент "Профиль" -->
     <string name="name">Имя</string>
@@ -73,5 +90,13 @@
     <string name="list_cities">Список</string>
     <string name="map_branches">На карте</string>
     <string name="address_branches">Адрес</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Окно Корзина -->
+    <string name="product_in_basket">Товаров в корзине</string>
+    <string name="total">Итого</string>
+    <string name="roubles">₽</string>
+
 
 </resources>

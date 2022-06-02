@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,20 +19,26 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
 import com.example.bratishka.R;
-import com.example.bratishka.adapter.DiscountsAdapter;
-import com.example.bratishka.adapter.ViewPagerEntryAdapter;
+import com.example.bratishka.adapter.MessagesAdapter;
+import com.example.bratishka.adapter.viewpager.ViewPagerEntryAdapter;
+
 import com.example.bratishka.databinding.FragmentEntryBinding;
-import com.example.bratishka.model.Discount;
-import com.example.bratishka.repository.DiscountsRepository;
+import com.example.bratishka.model.Message;
+
+import com.example.bratishka.repository.NetworkService;
+import com.example.bratishka.selectcity.SelectCityActivity;
 import com.example.bratishka.ui.entry.uientry.HaircutsFragments;
-import com.example.bratishka.ui.entry.uientry.MyNotificationsActivity;
-import com.example.bratishka.ui.entry.uientry.ShopFragment;
-import com.example.bratishka.ui.entry.uientry.ShoppingCartActivity;
+import com.example.bratishka.ui.entry.uientry.shop.ShopFragment;
+import com.example.bratishka.ui.entry.uientry.shop.ShoppingCartActivity;
 import com.google.android.material.tabs.TabLayout;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EntryFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -38,6 +46,9 @@ public class EntryFragment extends Fragment {
     private ViewPager viewPager;
 
     private FragmentEntryBinding binding;
+    private List<Message> messages;
+
+    private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,21 +57,30 @@ public class EntryFragment extends Fragment {
         setHasOptionsMenu(true);
 
         binding = FragmentEntryBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        root = binding.getRoot();
 
         this.tabLayout = root.findViewById(R.id.tabLayoutEntry);
         this.viewPager = root.findViewById(R.id.viewPagerEntry);
         this.recyclerView = root.findViewById(R.id.recycler_view_promotion_and_discounts);
 
-        try {
-            DiscountsRepository repository = new DiscountsRepository(root.getContext());
-            ArrayList<Discount> discounts = repository.getDiscounts();
-            LinearLayoutManager manager = new LinearLayoutManager(root.getContext(), LinearLayoutManager.HORIZONTAL, false);
-            this.recyclerView.setLayoutManager(manager);
-            this.recyclerView.setAdapter(new DiscountsAdapter(root.getContext(), discounts));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        NetworkService.getInstance()
+                .getBratishkaApi()
+                .getMessages()
+                .enqueue(new Callback<List<Message>>() {
+                    @Override
+                    public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
+                        messages = response.body();
+                        LinearLayoutManager manager = new LinearLayoutManager(root.getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(manager);
+                        recyclerView.setAdapter(new MessagesAdapter(root.getContext(), messages));
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Message>> call, Throwable t) {
+                        Toast.makeText(root.getContext(), "Error!", Toast.LENGTH_SHORT).show();
+                        t.printStackTrace();
+                    }
+                });
 
         tabLayout.setupWithViewPager(viewPager);
 
@@ -82,6 +102,7 @@ public class EntryFragment extends Fragment {
     private void initComponents() {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setCustomView(R.layout.toolbar_title_entry_fragment);
+
     }
 
     @Override
@@ -98,9 +119,10 @@ public class EntryFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.notifications_id) {
-            Intent intent = new Intent(getContext(), MyNotificationsActivity.class);
-            startActivity(intent);
+
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -1,8 +1,10 @@
 package com.example.bratishka.main;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.bratishka.R;
+import com.example.bratishka.util.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,8 @@ public class MainMenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+
     }
 
 }

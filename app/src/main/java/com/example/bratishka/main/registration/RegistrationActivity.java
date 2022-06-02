@@ -9,11 +9,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bratishka.R;
+import com.example.bratishka.model.Resp;
+import com.example.bratishka.repository.NetworkService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegistrationActivity extends AppCompatActivity {
-    private EditText editTextInputNumber;
+    private EditText editTextInputEmail;
     private Button buttonGetCode;
 
     @Override
@@ -30,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_registration);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.editTextInputNumber = findViewById(R.id.inputNumberReg);
+        this.editTextInputEmail = findViewById(R.id.inputNumberReg);
         this.buttonGetCode = findViewById(R.id.btnGetCode);
 
         getButtonCode();
@@ -38,13 +45,28 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void getButtonCode() {
         this.buttonGetCode.setOnClickListener(view -> {
-            //Ввод номера телефона
-            //Отправка запроса на сервер
-            //Переход на другое окно регистрации
-
-            Intent intent = new Intent(RegistrationActivity.this, RegistrationActivityOne.class);
-            finish();
-            startActivity(intent);
+            String email = this.editTextInputEmail.getText().toString();
+            NetworkService.getInstance()
+                    .getBratishkaApi()
+                    .getCode(email)
+                    .enqueue(new Callback<Resp>() {
+                        @Override
+                        public void onResponse(Call<Resp> call, Response<Resp> response) {
+                            Resp resp = response.body();
+                            if (email.isEmpty()){
+                                Toast.makeText(RegistrationActivity.this, "Поле пустое!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent = new Intent(RegistrationActivity.this, RegistrationActivityOne.class);
+                                intent.putExtra("email", email);
+                                startActivity(intent);
+                            }
+                            Toast.makeText(RegistrationActivity.this, resp.getStatus(), Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onFailure(Call<Resp> call, Throwable t) {
+                            Toast.makeText(RegistrationActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
     }
 

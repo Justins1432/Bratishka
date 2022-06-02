@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,11 +17,13 @@ import android.widget.EditText;
 import com.example.bratishka.R;
 import com.example.bratishka.main.ForgotPasswordActivity;
 import com.example.bratishka.main.MainActivity;
+import com.example.bratishka.util.Constants;
 
 public class EditProfileActivity extends AppCompatActivity {
     private EditText editSurname, editName, editPatronymic;
     private EditText editEmail, editDateBirth, editCity;
     private Button btnChangePass, btnSave;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +79,13 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.exit_app_id){
-            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+            SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
+            sharedPreferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
             finish();
+            Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
             startActivity(intent);
         }
 
@@ -85,4 +94,5 @@ public class EditProfileActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

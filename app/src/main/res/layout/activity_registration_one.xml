@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/check_number"
+            android:text="@string/check_email"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="32sp"
@@ -38,91 +38,67 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/goToRegTwo"
+            android:id="@+id/txtEmail_Regis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="88005553535"
+            tools:text="mr.zudkin@mail.ru"
             android:textAlignment="center"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             android:textColor="@color/black"
-            android:onClick="goToRegTwo"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
+        android:layout_marginBottom="175dp"
         android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376">
+        app:layout_constraintVertical_bias="0.466">
 
         <EditText
-            android:id="@+id/numberOne"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/text_color_auth"
-            android:inputType="number"
+            android:id="@+id/code_Reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
             android:textAlignment="center"
             android:textColor="@color/text_color_auth"
-            android:textSize="20sp"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:singleLine="true" />
-
-        <EditText
-            android:id="@+id/numberTwo"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/text_color_auth"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColor="@color/text_color_auth"
-            android:textSize="20sp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <EditText
-            android:id="@+id/numberThree"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/text_color_auth"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColor="@color/text_color_auth"
-            android:textSize="20sp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-        <EditText
-            android:id="@+id/numberFour"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/text_color_auth"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColor="@color/text_color_auth"
-            android:textSize="20sp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:text="4343" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/inCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Ввести"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginTop="10dp">
+        app:layout_constraintVertical_bias="0.644"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -133,14 +109,15 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/checkNumberPhone"
+            android:id="@+id/checkEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/change_number"
             android:layout_marginLeft="10dp"
-            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="140dp"
+            android:text="@string/change_number"
             android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

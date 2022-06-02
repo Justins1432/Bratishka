@@ -18,24 +18,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13">
 
+        <TextView
+            android:id="@+id/emailRegUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:hint="@string/email"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_color_auth"
+            tools:text="mr.zudkin@mail.ru"/>
+
         <EditText
-            android:id="@+id/id_registration_number"
+            android:id="@+id/phone_number_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="@string/number_phone"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:hint="@string/number_phone_user"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_color_auth"
+            tools:ignore="TouchTargetSizeCheck"
+            tools:text="89019431912"/>
 
         <EditText
+            android:id="@+id/codeRegUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/code_text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_color_auth"
             tools:ignore="TouchTargetSizeCheck"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white"
+            tools:text="1488"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -47,10 +60,10 @@
                 android:id="@+id/id_password_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
+                android:background="@color/white"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/white"
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck" />
@@ -67,10 +80,10 @@
                 android:id="@+id/id_repeat_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
+                android:background="@color/white"
                 android:hint="@string/repeat_the_pass_text"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textColorHint="@color/text_color_auth"
                 android:textSize="18sp"
                 tools:ignore="TextContrastCheck" />
@@ -78,19 +91,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/id_checkbox_rules"
+            android:id="@+id/checkbox_rules"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:text="@string/rules_and_confidentiality"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorLink="@color/white"
+            android:textColor="@color/black"
+            android:textColorLink="@color/splashscreen"
             android:textSize="14sp"
-            android:theme="@style/CheckBox"/>
+            android:buttonTint="@color/splashscreen"/>
 
         <Button
-            android:id="@+id/id_btn_registration"
+            android:id="@+id/btn_registration"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:text="@string/registration"

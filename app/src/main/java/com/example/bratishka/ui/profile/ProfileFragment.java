@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.edit_profile_id){
-            Intent intent = new Intent(this.getContext(), EditProfileActivity.class);
+            Intent intent = new Intent(this.getActivity(), EditProfileActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

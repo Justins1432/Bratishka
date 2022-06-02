@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -15,14 +14,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.bratishka.R;
-import com.example.bratishka.adapter.ViewPagerBranchesAdapter;
+import com.example.bratishka.adapter.viewpager.ViewPagerBranchesAdapter;
 import com.example.bratishka.databinding.FragmentBranchesBinding;
 import com.example.bratishka.ui.branches.uibranches.ListCitiesFragment;
 import com.example.bratishka.ui.branches.uibranches.MapBranchesFragment;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.Objects;
 
 public class BranchesFragment extends Fragment {
     private TabLayout tabLayout;
@@ -34,6 +30,7 @@ public class BranchesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         BranchesViewModel homeViewModel =
                 new ViewModelProvider(this).get(BranchesViewModel.class);
+        setHasOptionsMenu(true);
 
         binding = FragmentBranchesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

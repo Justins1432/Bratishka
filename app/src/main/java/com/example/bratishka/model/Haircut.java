@@ -1,24 +1,26 @@
 package com.example.bratishka.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Haircut {
-    private String price;
+public class Haircut implements Serializable {
+   @SerializedName("id")
+    private String id;
+   @SerializedName("name")
     private String name;
-    private int idResource;
+   @SerializedName("price")
+    private String price;
+   @SerializedName("icon")
+    private String icon;
 
-    public Haircut(String price, String name, int idResource){
-        this.price = price;
-        this.name = name;
-        this.idResource = idResource;
+    public String getId() {
+        return id;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -29,12 +31,20 @@ public class Haircut {
         this.name = name;
     }
 
-    public int getIdResource() {
-        return idResource;
+    public String getPrice() {
+        return price;
     }
 
-    public void setIdResource(int idResource) {
-        this.idResource = idResource;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     @Override
@@ -42,20 +52,21 @@ public class Haircut {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Haircut haircut = (Haircut) o;
-        return idResource == haircut.idResource && price.equals(haircut.price) && name.equals(haircut.name);
+        return id.equals(haircut.id) && name.equals(haircut.name) && price.equals(haircut.price) && icon.equals(haircut.icon);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, name, idResource);
+        return Objects.hash(id, name, price, icon);
     }
 
     @Override
     public String toString() {
         return "Haircut{" +
-                "price='" + price + '\'' +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", idResource=" + idResource +
+                ", price='" + price + '\'' +
+                ", icon='" + icon + '\'' +
                 '}';
     }
 }
