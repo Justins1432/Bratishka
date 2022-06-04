@@ -1,11 +1,15 @@
 package com.example.bratishka.ui.branches.uibranches;
 
+import static java.lang.Double.parseDouble;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,12 +20,14 @@ import android.widget.Toast;
 import com.example.bratishka.R;
 import com.example.bratishka.model.Branch;
 import com.example.bratishka.repository.NetworkService;
+import com.example.bratishka.ui.branches.branchinfo.BranchInfoActivity;
 import com.example.bratishka.util.Constants;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -44,38 +50,6 @@ public class MapBranchesFragment extends Fragment {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map_branches);
 
-        /*mapFragment.getMapAsync(googleMap -> {
-            map = googleMap;
-            try {
-                Context context = view.getContext();
-                BranchesRepository repository = new BranchesRepository(context);
-                ArrayList<Branch> branches = repository.getBranches();
-
-                for (Branch branch : branches){
-                    String address = branch.getAddress();
-                    double latitude = branch.getLatitude();
-                    double longitude = branch.getLongitude();
-                    int idResource = branch.getIdResource();
-
-                    LatLng lng = new LatLng(latitude, longitude);
-                    MarkerOptions options = new MarkerOptions().position(lng)
-                            .icon(BitmapDescriptorFactory.fromBitmap(getScaledBitmap(idResource)));
-
-                    map.addMarker(options);
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(lng, 15));
-
-                    map.setOnMarkerClickListener(marker -> {
-                        Intent intent = new Intent(getContext(), BranchInfoActivity.class);
-                        startActivity(intent);
-                        return false;
-                    });
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        });*/
-
         mapFragment.getMapAsync(googleMap -> {
             SharedPreferences sharedPreferences
                     = view.getContext().getSharedPreferences(Constants.PREFERENCES_CITY, Context.MODE_PRIVATE);
@@ -95,8 +69,8 @@ public class MapBranchesFragment extends Fragment {
                                 String latitude = branch.getLatitude();
                                 String longitude = branch.getLongitude();
 
-                                double dLatitude = Double.parseDouble(latitude);
-                                double dLongitude = Double.parseDouble(longitude);
+                                double dLatitude = parseDouble(latitude);
+                                double dLongitude = parseDouble(longitude);
 
                                 LatLng latLng = new LatLng(dLatitude, dLongitude);
 

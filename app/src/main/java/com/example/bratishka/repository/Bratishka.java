@@ -1,5 +1,6 @@
 package com.example.bratishka.repository;
 
+import com.example.bratishka.model.Barber;
 import com.example.bratishka.model.Branch;
 import com.example.bratishka.model.City;
 import com.example.bratishka.model.Haircut;
@@ -50,5 +51,8 @@ public interface Bratishka {
 
     @GET("/bratishka/getAuth.php")
     Call<Resp> getAuth(@Query("email") String email, @Query("password") String password);
+
+    @GET("/bratishka/getBarbersBranch.php")
+    Call<List<Barber>> getBarbersBranch(@Query("branch_id") int id);
 
 }

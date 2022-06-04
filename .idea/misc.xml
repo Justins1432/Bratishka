@@ -250,7 +250,7 @@
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_add_basket.xml" value="0.32608695652173914" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_add_product_basket.xml" value="0.25" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_book_ahaircut.xml" value="0.25" />
-        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_branch_info.xml" value="0.32155797101449274" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_branch_info.xml" value="0.25" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_by_appointment.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_check.xml" value="0.11059027777777777" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_edit_profile.xml" value="0.33" />
@@ -269,6 +269,7 @@
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_shopping_cart.xml" value="0.33" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/activity_view_pager_my_notes.xml" value="0.32472826086956524" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/barber_item.xml" value="0.248046875" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/barbers_item.xml" value="0.5" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/basket_item.xml" value="0.33" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/branches_item.xml" value="0.33" />
@@ -308,6 +309,7 @@
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/points_item.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/products_list_item.xml" value="0.25" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/select_city_show.xml" value="0.25" />
+        <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/shop_in_branch_show.xml" value="0.271483539974348" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/time_view.xml" value="0.22" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/toolbar_select_city.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/igroman/AndroidStudioProjects/Bratishka/app/src/main/res/layout/toolbar_title_branches_fragment.xml" value="0.2" />
