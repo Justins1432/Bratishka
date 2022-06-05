@@ -52,8 +52,8 @@ public class MapBranchesFragment extends Fragment {
 
         mapFragment.getMapAsync(googleMap -> {
             SharedPreferences sharedPreferences
-                    = view.getContext().getSharedPreferences(Constants.PREFERENCES_CITY, Context.MODE_PRIVATE);
-            String idCity = sharedPreferences.getString(Constants.PREFERENCES_CITY_ID, null);
+                    = view.getContext().getSharedPreferences(Constants.PREFERENCES_USER, Context.MODE_PRIVATE);
+            String idCity = sharedPreferences.getString(Constants.PREFERENCES_USER_CITY_ID, null);
 
             map = googleMap;
             Context context = view.getContext();

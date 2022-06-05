@@ -55,4 +55,9 @@ public interface Bratishka {
     @GET("/bratishka/getBarbersBranch.php")
     Call<List<Barber>> getBarbersBranch(@Query("branch_id") int id);
 
+    @GET("/bratishka/getRecovery.php")
+    Call<Resp> getRecovery(@Query("email") String email,
+                           @Query("code") String code,
+                           @Query("password") String password);
+
 }

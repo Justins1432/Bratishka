@@ -64,11 +64,9 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
             String cityId = city.getId();
 
             SharedPreferences sharedPreferences
-                    = context.getSharedPreferences(Constants.PREFERENCES_CITY, Context.MODE_PRIVATE);
-
+                    = context.getSharedPreferences(Constants.PREFERENCES_USER, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-
-            editor.putString(Constants.PREFERENCES_CITY_ID, cityId);
+            editor.putString(Constants.PREFERENCES_USER_CITY_ID, cityId);
             editor.apply();
 
             Intent intent = new Intent(context, MainMenuActivity.class);

@@ -81,6 +81,7 @@ public class EditProfileActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.exit_app_id){
             SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
             sharedPreferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
+            sharedPreferences.getString(Constants.PREFERENCES_USER_CITY_ID, null);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
             editor.apply();

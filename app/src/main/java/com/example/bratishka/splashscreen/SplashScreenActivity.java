@@ -22,16 +22,27 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashScreenActivity.this,
+                    MainActivity.class);
+            SplashScreenActivity.this.startActivity(intent);
+
             SharedPreferences sharedPreferences
                     = getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
             String preferencesUserEmail = sharedPreferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
+            String preferencesUserCityID = sharedPreferences.getString(Constants.PREFERENCES_USER_CITY_ID, null);
 
-            Intent intent;
-            if (preferencesUserEmail != null) {
+            if (preferencesUserEmail != null && preferencesUserCityID == null){
                 intent = new Intent(SplashScreenActivity.this, SelectCityActivity.class);
-            } else {
+            }
+
+            if (preferencesUserEmail != null && preferencesUserCityID != null){
+                intent = new Intent(SplashScreenActivity.this, MainMenuActivity.class);
+            }
+
+            if (preferencesUserEmail == null && preferencesUserCityID == null){
                 intent = new Intent(SplashScreenActivity.this, MainActivity.class);
             }
+
             startActivity(intent);
             SplashScreenActivity.this.finish();
         }, SPLASH_DISPLAY_LENGTH);

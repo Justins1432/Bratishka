@@ -71,17 +71,6 @@ public class SelectCityActivity extends AppCompatActivity {
 
         this.recyclerViewCities = findViewById(R.id.recycler_view_select_city);
 
-        SharedPreferences sharedPreferencesCity
-                = getSharedPreferences(Constants.PREFERENCES_CITY, MODE_PRIVATE);
-        String cityString = sharedPreferencesCity.getString(Constants.PREFERENCES_CITY_ID, null);
-
-        if (cityString != null){
-            Intent intent = new Intent(this, MainMenuActivity.class);
-            startActivity(intent);
-        }
-
-        finish();
-
         initRecyclerViewCities();
     }
 
