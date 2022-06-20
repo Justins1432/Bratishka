@@ -3,6 +3,9 @@ package com.example.bratishka.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -71,8 +74,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getDateBirth() {
-        return dateBirth;
+    public String getDateBirth() throws ParseException, NullPointerException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = dateFormat.parse(dateBirth);
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(date);
     }
 
     public void setDateBirth(String dateBirth) {

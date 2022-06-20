@@ -15,12 +15,13 @@ import com.example.bratishka.R;
 
 public class LiveQueueFragment extends Fragment {
     private TextView chooseDateLiveQueue, chooseTimeLiveQueue;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_live_queue, container, false);
+        view = inflater.inflate(R.layout.fragment_live_queue, container, false);
 
         this.chooseDateLiveQueue = view.findViewById(R.id.chooseDateLiveQueue);
         this.chooseTimeLiveQueue = view.findViewById(R.id.chooseTimeLiveQueue);

@@ -81,7 +81,7 @@ public class BranchInfoActivity extends AppCompatActivity {
     }
 
     private void initBarbers() {
-        int id = getIntent().getIntExtra("id", -1);
+        int id = getIntent().getIntExtra("idBranch", -1);
 
         NetworkService.getInstance().getBratishkaApi()
                 .getBarbersBranch(id)

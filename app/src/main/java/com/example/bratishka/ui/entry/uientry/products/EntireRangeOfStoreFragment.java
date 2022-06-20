@@ -39,15 +39,6 @@ public class EntireRangeOfStoreFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(root.getContext(), 2,
                 LinearLayoutManager.VERTICAL, false);
 
-        /*try {
-            ProductRepository repository = new ProductRepository(view.getContext());
-            ArrayList<Product> products = repository.getProducts();
-            this.recyclerViewEntireProducts.setLayoutManager(layoutManager);
-            this.recyclerViewEntireProducts.setAdapter(new ShopAdapter(view.getContext(), products));
-        }catch (IOException e){
-            e.printStackTrace();
-        }*/
-
         NetworkService.getInstance()
                 .getBratishkaApi()
                 .getProducts()
@@ -68,8 +59,4 @@ public class EntireRangeOfStoreFragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
 }

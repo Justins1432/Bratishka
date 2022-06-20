@@ -20,14 +20,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegistrationActivity extends AppCompatActivity {
-    private EditText editTextInputEmail;
-    private Button buttonGetCode;
+    private EditText edtTxtInEmail;
+    private Button btnGetCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
         initComponents();
     }
 
@@ -37,15 +36,15 @@ public class RegistrationActivity extends AppCompatActivity {
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_registration);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.editTextInputEmail = findViewById(R.id.inputNumberReg);
-        this.buttonGetCode = findViewById(R.id.btnGetCode);
+        this.edtTxtInEmail = findViewById(R.id.inputNumberReg);
+        this.btnGetCode = findViewById(R.id.btnGetCode);
 
         getButtonCode();
     }
 
     private void getButtonCode() {
-        this.buttonGetCode.setOnClickListener(view -> {
-            String email = this.editTextInputEmail.getText().toString();
+        this.btnGetCode.setOnClickListener(view -> {
+            String email = this.edtTxtInEmail.getText().toString();
             NetworkService.getInstance()
                     .getBratishkaApi()
                     .getCode(email)

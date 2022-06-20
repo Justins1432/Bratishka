@@ -28,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListCitiesFragment extends Fragment {
+public class ListBranchesFragment extends Fragment {
     private RecyclerView recyclerView;
     private EditText editText;
     private View view;
@@ -37,8 +37,7 @@ public class ListCitiesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //Toast.makeText(getContext(), "List Fragment Create", Toast.LENGTH_SHORT).show();
-        // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_list_cities, container, false);
 
         this.recyclerView = view.findViewById(R.id.addresses_recycler_view);
@@ -60,10 +59,7 @@ public class ListCitiesFragment extends Fragment {
 
             }
         });
-
-
         initRecyclerViewBranches();
-
         return view;
     }
 
@@ -115,15 +111,4 @@ public class ListCitiesFragment extends Fragment {
                 });
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
 }

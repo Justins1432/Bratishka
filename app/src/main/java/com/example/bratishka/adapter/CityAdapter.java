@@ -1,15 +1,12 @@
 package com.example.bratishka.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bratishka.R;
 import com.example.bratishka.main.MainMenuActivity;
 import com.example.bratishka.model.City;
-import com.example.bratishka.ui.branches.uibranches.ListCitiesFragment;
+import com.example.bratishka.ui.branches.uibranches.ListBranchesFragment;
 import com.example.bratishka.util.Constants;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -72,7 +67,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.CityViewHolder
             Intent intent = new Intent(context, MainMenuActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("city_id", cityId);
-            ListCitiesFragment fragment = new ListCitiesFragment();
+            ListBranchesFragment fragment = new ListBranchesFragment();
             fragment.setArguments(bundle);
             context.startActivity(intent);
 

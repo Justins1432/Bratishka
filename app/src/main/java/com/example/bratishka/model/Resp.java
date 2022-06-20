@@ -1,10 +1,11 @@
 package com.example.bratishka.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Resp {
+public class Resp implements Serializable {
     private String status;
-    private long id;
+    private String message;
 
     public String getStatus() {
         return status;
@@ -14,12 +15,12 @@ public class Resp {
         this.status = status;
     }
 
-    public long getId() {
-        return id;
+    public String getMessage() {
+        return message;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -27,20 +28,19 @@ public class Resp {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Resp resp = (Resp) o;
-        return id == resp.id && status.equals(resp.status);
+        return status.equals(resp.status) && message.equals(resp.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, id);
+        return Objects.hash(status, message);
     }
 
     @Override
     public String toString() {
         return "Resp{" +
                 "status='" + status + '\'' +
-                ", id=" + id +
+                ", message='" + message + '\'' +
                 '}';
     }
-
 }

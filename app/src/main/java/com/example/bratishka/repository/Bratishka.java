@@ -6,7 +6,10 @@ import com.example.bratishka.model.City;
 import com.example.bratishka.model.Haircut;
 import com.example.bratishka.model.Message;
 import com.example.bratishka.model.Product;
+import com.example.bratishka.model.Record;
 import com.example.bratishka.model.Resp;
+import com.example.bratishka.model.Schedule;
+import com.example.bratishka.model.User;
 
 import java.util.List;
 
@@ -59,5 +62,32 @@ public interface Bratishka {
     Call<Resp> getRecovery(@Query("email") String email,
                            @Query("code") String code,
                            @Query("password") String password);
+
+    @GET("/bratishka/getTimeBarber.php")
+    Call<List<Schedule>> getTimes(@Query("id") String id, @Query("day") String day);
+
+    @GET("/bratishka/getProfileUser.php")
+    Call<List<User>> getProfile(@Query("email") String email);
+
+    @GET("/bratishka/editprofile.php")
+    Call<Resp> editProfile(@Query("email") String email,
+                                 @Query("surname") String surname,
+                                 @Query("name") String name,
+                                 @Query("fathername") String fathername,
+                                 @Query("date_birth") String dateBorn,
+                                 @Query("number_phone") String number,
+                                 @Query("city") String city);
+
+    @GET("/bratishka/addRecord.php")
+    Call<Resp> addRecord(@Query("date_record") String date,
+                         @Query("user_email") String email,
+                         @Query("branch_id") int branchID,
+                         @Query("h_name") String h_name,
+                         @Query("h_price") String h_price,
+                         @Query("schedule") String schedule,
+                         @Query("barber_id") int barberID);
+
+    @GET("/bratishka/getRecords.php")
+    Call<List<Record>> getRecords(@Query("user_email") String email);
 
 }

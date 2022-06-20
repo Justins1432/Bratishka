@@ -21,9 +21,9 @@ import retrofit2.Response;
 
 public class RegistrationActivityOne extends AppCompatActivity {
     private EditText number;
-    private TextView textViewReturn;
+    private TextView txtViewReturn;
     private Button btnReviewCode;
-    private TextView textView;
+    private TextView txtEmail;
     private Context context;
 
     @Override
@@ -33,20 +33,16 @@ public class RegistrationActivityOne extends AppCompatActivity {
         initComponents();
     }
 
-
-
     private void initComponents() {
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_registration_1);
 
         this.number = findViewById(R.id.code_Reg);
-        this.textViewReturn = findViewById(R.id.checkEmail);
+        this.txtViewReturn = findViewById(R.id.checkEmail);
         this.btnReviewCode = findViewById(R.id.inCode);
-        this.textView = findViewById(R.id.txtEmail_Regis);
+        this.txtEmail = findViewById(R.id.txtEmail_Regis);
 
-
-
-        this.textViewReturn.setOnClickListener(view -> {
+        this.txtViewReturn.setOnClickListener(view -> {
             finish();
         });
 
@@ -56,7 +52,7 @@ public class RegistrationActivityOne extends AppCompatActivity {
     private void checkEmail(){
         Bundle arguments = getIntent().getExtras();
         String email = arguments.getString("email");
-        this.textView.setText(email);
+        this.txtEmail.setText(email);
 
         this.btnReviewCode.setOnClickListener(view -> {
             String code = this.number.getText().toString();

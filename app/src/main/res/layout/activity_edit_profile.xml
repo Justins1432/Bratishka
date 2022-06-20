@@ -78,17 +78,6 @@
             android:textColorHint="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/edtEmailUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/text_color_auth"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/edtNumberPhone"
@@ -102,16 +91,18 @@
             android:textColorHint="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <EditText
-            android:id="@+id/edtDateBirth"
+        <TextView
+            android:id="@+id/txtDateBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/text_color_auth"
-            android:hint="@string/date_birth"
+            android:hint="@string/pattern_date_birth"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:inputType="datetime"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/edtCityUser"

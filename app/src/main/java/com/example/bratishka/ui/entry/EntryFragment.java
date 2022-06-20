@@ -44,10 +44,8 @@ public class EntryFragment extends Fragment {
     private RecyclerView recyclerView;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
     private FragmentEntryBinding binding;
     private List<Message> messages;
-
     private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -121,7 +119,6 @@ public class EntryFragment extends Fragment {
         if (item.getItemId() == R.id.notifications_id) {
 
         }
-
 
         return super.onOptionsItemSelected(item);
     }

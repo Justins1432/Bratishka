@@ -16,7 +16,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.bratishka.databinding.ActivityMainMenuBinding;
 
 public class MainMenuActivity extends AppCompatActivity {
-
     private ActivityMainMenuBinding binding;
 
     @Override

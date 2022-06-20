@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,11 +15,11 @@ import com.example.bratishka.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-    private EditText editTextInputNumber;
+    private EditText edtInputNumber;
     private TextInputEditText newInputPass;
-    private TextInputEditText repeatInputPass;
-    private TextView textViewGetCode;
-    private Button buttonApply;
+    private TextInputEditText rptInputPass;
+    private TextView txtGetCode;
+    private Button btnApply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,25 +34,25 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_forgot_pass);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.editTextInputNumber = findViewById(R.id.inputNumber);
+        this.edtInputNumber = findViewById(R.id.inputNumber);
         this.newInputPass = findViewById(R.id.newPassword);
-        this.repeatInputPass = findViewById(R.id.repeatPassword);
-        this.textViewGetCode = findViewById(R.id.getCode);
-        this.buttonApply = findViewById(R.id.applyBtn);
+        this.rptInputPass = findViewById(R.id.repeatPassword);
+        this.txtGetCode = findViewById(R.id.getCode);
+        this.btnApply = findViewById(R.id.applyBtn);
 
         getCode();
         buttonApply();
     }
 
     private void getCode() {
-        this.textViewGetCode.setOnClickListener(view -> {
+        this.txtGetCode.setOnClickListener(view -> {
             int textNull = R.string.text_null;
             Toast.makeText(this, textNull, Toast.LENGTH_SHORT).show();
         });
     }
 
     private void buttonApply() {
-        this.buttonApply.setOnClickListener(view -> {
+        this.btnApply.setOnClickListener(view -> {
             //Восстановление доступа
         });
     }

@@ -10,7 +10,7 @@ public class Barber implements Serializable {
     private String id;
     @SerializedName("position")
     private String position;
-    @SerializedName("name")
+    @SerializedName("b_name")
     private String name;
     @SerializedName("rating")
     private String rating;
@@ -18,6 +18,18 @@ public class Barber implements Serializable {
     private String image;
     @SerializedName("branch_id")
     private String branch_id;
+
+    public Barber() {
+    }
+
+    public Barber(String id, String position, String name, String rating, String image, String branch_id) {
+        this.id = id;
+        this.position = position;
+        this.name = name;
+        this.rating = rating;
+        this.image = image;
+        this.branch_id = branch_id;
+    }
 
     public String getId() {
         return id;

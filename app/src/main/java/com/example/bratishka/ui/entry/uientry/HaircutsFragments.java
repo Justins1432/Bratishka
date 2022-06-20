@@ -32,20 +32,8 @@ public class HaircutsFragments extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_haircuts_fragments, container, false);
-
         this.recyclerViewHaircuts = root.findViewById(R.id.recycler_view_haircuts);
-
-        /*try {
-            HaircutsRepository repository = new HaircutsRepository(view.getContext());
-            ArrayList<Haircut> haircuts = repository.getHaircuts();
-            this.recyclerViewHaircuts.setLayoutManager(new LinearLayoutManager(view.getContext()));
-            this.recyclerViewHaircuts.setAdapter(new HaircutsAdapter(view.getContext(), haircuts));
-        }catch (IOException e){
-            e.printStackTrace();
-        }*/
-
         NetworkService.getInstance()
                 .getBratishkaApi()
                 .getHaircuts()
@@ -63,7 +51,6 @@ public class HaircutsFragments extends Fragment {
                         t.printStackTrace();
                     }
                 });
-
         return root;
     }
 

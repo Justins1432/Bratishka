@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bratishka.R;
 import com.example.bratishka.model.Barber;
+import com.example.bratishka.ui.entry.bookahaircut.ByAppointmentFragment;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class BarbersAdapter extends RecyclerView.Adapter<BarbersAdapter.BarberVi
     private Context context;
     private List<Barber> barbers;
 
-    public BarbersAdapter(Context context, List<Barber> barbers){
+    public BarbersAdapter(Context context, List<Barber> barbers) {
         this.context = context;
         this.barbers = barbers;
     }
@@ -35,20 +36,20 @@ public class BarbersAdapter extends RecyclerView.Adapter<BarbersAdapter.BarberVi
 
     @Override
     public void onBindViewHolder(@NonNull BarberViewHolder holder, int position) {
-        Barber barber = barbers.get(position);
+        Barber barber = this.barbers.get(position);
 
         holder.txtName.setText(barber.getName());
         holder.txtPosition.setText(barber.getPosition());
         Glide.with(context).asBitmap().load(barber.getImage()).into(holder.imageView);
-
     }
 
     @Override
     public int getItemCount() {
-        return barbers.size();
+        return this.barbers.size();
     }
 
-    public class BarberViewHolder extends RecyclerView.ViewHolder{
+
+    public class BarberViewHolder extends RecyclerView.ViewHolder {
         TextView txtName, txtPosition;
         ImageView imageView;
 

@@ -2,6 +2,7 @@ package com.example.bratishka.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bratishka.R;
 import com.example.bratishka.model.Branch;
 import com.example.bratishka.ui.branches.branchinfo.BranchInfoActivity;
+import com.example.bratishka.ui.entry.bookahaircut.BookAHaircutActivity;
+import com.example.bratishka.ui.entry.bookahaircut.ByAppointmentFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +55,11 @@ public class BranchesAdapter extends RecyclerView.Adapter<BranchesAdapter.Branch
 
             Intent intent = new Intent(context, BranchInfoActivity.class);
             intent.putExtra(BranchInfoActivity.BRANCH_INFO, branch);
-            intent.putExtra("id", idBranch);
+            intent.putExtra("idBranch", idBranch);
             intent.putExtra("street", streetBranch);
             intent.putExtra("latitude", brLatitude);
             intent.putExtra("longitude", brLongitude);
-
             context.startActivity(intent);
-
         });
 
     }

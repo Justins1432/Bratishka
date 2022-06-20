@@ -46,12 +46,9 @@ public class SelectCityActivity extends AppCompatActivity {
     private void initComponents() {
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_select_city);
-
         this.searchCity = findViewById(R.id.search_cities);
-
         SharedPreferences preferences = getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
         preferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
-
         this.searchCity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -68,14 +65,11 @@ public class SelectCityActivity extends AppCompatActivity {
 
             }
         });
-
         this.recyclerViewCities = findViewById(R.id.recycler_view_select_city);
-
         initRecyclerViewCities();
     }
 
     private void initRecyclerViewCities() {
-
         NetworkService.getInstance()
                 .getBratishkaApi()
                 .getCities()
@@ -93,7 +87,6 @@ public class SelectCityActivity extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-
     }
 
     private void initSearchRecyclerView() {
@@ -120,23 +113,5 @@ public class SelectCityActivity extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_select_city, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.mainMenu) {
-            Intent intent = new Intent(SelectCityActivity.this, MainMenuActivity.class);
-            startActivity(intent);
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
-        return true;
     }
 }

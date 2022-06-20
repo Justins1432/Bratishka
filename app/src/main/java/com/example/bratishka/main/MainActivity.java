@@ -22,8 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textViewRegistration;
-    private TextView textViewForgotPassword;
+    private TextView txtViewRegistration, txtViewForgotPassword;
     private Button buttonSignIn;
     private EditText edtEmail, edtPassword;
 
@@ -32,25 +31,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initComponents();
+        initRegistration();
+        initForgotPass();
+        initAuth();
     }
 
     private void initComponents() {
-        this.textViewRegistration = findViewById(R.id.registrationUser);
-        this.textViewForgotPassword = findViewById(R.id.forgotPassUser);
+        this.txtViewRegistration = findViewById(R.id.registrationUser);
+        this.txtViewForgotPassword = findViewById(R.id.forgotPassUser);
         this.buttonSignIn = findViewById(R.id.btnSignIn);
         this.edtEmail = findViewById(R.id.authEmail);
         this.edtPassword = findViewById(R.id.authPassword);
+    }
 
-        this.textViewRegistration.setOnClickListener(view -> {
+    private void initRegistration() {
+        this.txtViewRegistration.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
             startActivity(intent);
         });
+    }
 
-        this.textViewForgotPassword.setOnClickListener(view -> {
+    private void initForgotPass() {
+        this.txtViewForgotPassword.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, ForgotPasswordActivity.class);
             startActivity(intent);
         });
+    }
 
+    private void initAuth() {
         this.buttonSignIn.setOnClickListener(view -> {
             String email = this.edtEmail.getText().toString();
             String password = this.edtPassword.getText().toString();
@@ -63,16 +71,17 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(Call<Resp> call, Response<Resp> response) {
                             Resp resp = response.body();
 
-                            if (email.isEmpty() && password.isEmpty()){
+                            if (email.isEmpty() && password.isEmpty()) {
                                 Toast.makeText(MainActivity.this, "Поля пустые", Toast.LENGTH_SHORT).show();
-                            }else if (email.isEmpty()){
+                            } else if (email.isEmpty()) {
                                 Toast.makeText(MainActivity.this, "Поле Логин пустое!", Toast.LENGTH_SHORT).show();
-                            }else if (password.isEmpty()){
+                            } else if (password.isEmpty()) {
                                 Toast.makeText(MainActivity.this, "Поле Пароль пустое!", Toast.LENGTH_SHORT).show();
                             }
 
-                            if (resp.getStatus().equals("OK")){
+                            if (resp.getStatus().equals("OK")) {
                                 Toast.makeText(MainActivity.this, resp.getStatus(), Toast.LENGTH_SHORT).show();
+
                                 SharedPreferences preferences =
                                         getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
                                 SharedPreferences.Editor editor = preferences.edit();
@@ -95,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         });
-
     }
 
 }

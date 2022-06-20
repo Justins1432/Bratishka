@@ -45,6 +45,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             startActivity(intent);
             SplashScreenActivity.this.finish();
+
         }, SPLASH_DISPLAY_LENGTH);
 
     }

@@ -80,6 +80,7 @@
     <string name="number_phone_user">Номер телефона</string>
     <string name="city">Город</string>
     <string name="date_birth">Дата рождения</string>
+    <string name="pattern_date_birth">дд-ММ-гггг</string>
     <string name="edit_profile_user">Редактировать профиль</string>
     <string name="editing">Редактирование</string>
     <string name="exit_app">Выйти</string>

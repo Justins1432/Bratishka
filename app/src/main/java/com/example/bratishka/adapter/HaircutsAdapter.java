@@ -2,6 +2,7 @@ package com.example.bratishka.adapter;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bratishka.R;
 import com.example.bratishka.model.Haircut;
+import com.example.bratishka.ui.entry.bookahaircut.BookAHaircutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +44,15 @@ public class HaircutsAdapter extends RecyclerView.Adapter<HaircutsAdapter.Haircu
         holder.textViewPrice.setText(haircut.getPrice());
         holder.textViewNameHaircuts.setText(haircut.getName());
         Glide.with(context).asBitmap().load(haircut.getIcon()).into(holder.imageView);
-        /*holder.layout.setOnClickListener(view -> {
-
-        });*/
+        holder.layout.setOnClickListener(view -> {
+            String price = haircut.getPrice();
+            String name = haircut.getName();
+            Intent intent = new Intent(context, BookAHaircutActivity.class);
+            intent.putExtra(BookAHaircutActivity.NAME_HAIRCUT, haircut);
+            intent.putExtra("price", price);
+            intent.putExtra("name", name);
+            context.startActivity(intent);
+        });
     }
 
     @Override

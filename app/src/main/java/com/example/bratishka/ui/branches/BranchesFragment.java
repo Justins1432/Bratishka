@@ -16,7 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.bratishka.R;
 import com.example.bratishka.adapter.viewpager.ViewPagerBranchesAdapter;
 import com.example.bratishka.databinding.FragmentBranchesBinding;
-import com.example.bratishka.ui.branches.uibranches.ListCitiesFragment;
+import com.example.bratishka.ui.branches.uibranches.ListBranchesFragment;
 import com.example.bratishka.ui.branches.uibranches.MapBranchesFragment;
 import com.google.android.material.tabs.TabLayout;
 
@@ -45,13 +45,11 @@ public class BranchesFragment extends Fragment {
                 FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
         );
 
-        adapter.addFragment(new ListCitiesFragment(), "Список");
+        adapter.addFragment(new ListBranchesFragment(), "Список");
         adapter.addFragment(new MapBranchesFragment(), "На карте");
         viewPager.setAdapter(adapter);
 
         initComponents();
-
-        //Toast.makeText(getContext(), "create", Toast.LENGTH_SHORT).show();
 
         return root;
     }
@@ -62,16 +60,4 @@ public class BranchesFragment extends Fragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-        //Toast.makeText(getContext(), "destroy", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        //Toast.makeText(getContext(), "1234", Toast.LENGTH_SHORT).show();
-    }
 }
