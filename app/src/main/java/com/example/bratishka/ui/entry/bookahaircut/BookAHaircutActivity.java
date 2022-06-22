@@ -2,11 +2,12 @@ package com.example.bratishka.ui.entry.bookahaircut;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,6 +51,8 @@ public class BookAHaircutActivity extends AppCompatActivity {
     private List<Branch> branches;
     private int idBranch;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,11 +85,7 @@ public class BookAHaircutActivity extends AppCompatActivity {
         this.viewPager = findViewById(R.id.viewPagerEntry);
         this.tabLayout.setupWithViewPager(viewPager);
 
-
-        ViewPagerEntries viewPagerEntries = new ViewPagerEntries(
-                getSupportFragmentManager(),
-                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-        );
+        ViewPagerEntries viewPagerEntries = new ViewPagerEntries(getSupportFragmentManager());
         viewPagerEntries.addFragment(new ByAppointmentFragment(), "По записи");
         viewPagerEntries.addFragment(new LiveQueueFragment(), "Живая очередь");
         viewPager.setAdapter(viewPagerEntries);

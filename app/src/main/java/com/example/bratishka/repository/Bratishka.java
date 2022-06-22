@@ -67,16 +67,34 @@ public interface Bratishka {
     Call<List<Schedule>> getTimes(@Query("id") String id, @Query("day") String day);
 
     @GET("/bratishka/getProfileUser.php")
-    Call<List<User>> getProfile(@Query("email") String email);
+    Call<User> getProfile(@Query("email") String email);
 
     @GET("/bratishka/editprofile.php")
     Call<Resp> editProfile(@Query("email") String email,
-                                 @Query("surname") String surname,
-                                 @Query("name") String name,
-                                 @Query("fathername") String fathername,
-                                 @Query("date_birth") String dateBorn,
-                                 @Query("number_phone") String number,
-                                 @Query("city") String city);
+                           @Query("surname") String surname,
+                           @Query("name") String name,
+                           @Query("fathername") String fathername,
+                           @Query("date_birth") String dateBorn,
+                           @Query("city") String city,
+                           @Query("number_phone") String number);
+
+    /*@GET("/bratishka/updateSurname.php")
+    Call<Resp> updSurname(@Query("email") String email, @Query("surname") String surname);
+
+    @GET("/bratishka/updateName.php")
+    Call<Resp> updName(@Query("email") String email, @Query("name") String name);
+
+    @GET("/bratishka/updateFathername.php")
+    Call<Resp> updFathername(@Query("email") String email, @Query("fathername") String fathername);
+
+    @GET("/bratishka/updateDateBorn.php")
+    Call<Resp> updDateBorn(@Query("email") String email, @Query("dateBorn") String dateBorn);
+
+    @GET("/bratishka/updateNumber.php")
+    Call<Resp> updNumber(@Query("email") String email, @Query("number") String number);
+
+    @GET("/bratishka/updateCity.php")
+    Call<Resp> updCity(@Query("email") String email, @Query("city") String city);*/
 
     @GET("/bratishka/addRecord.php")
     Call<Resp> addRecord(@Query("date_record") String date,

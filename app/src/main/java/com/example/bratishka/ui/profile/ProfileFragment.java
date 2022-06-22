@@ -40,6 +40,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
+    public static final String SURNAME = "Фамилия: не выбрано";
+    public static final String NAME = "Имя: не выбрано";
+    public static final String FATHERNAME = "Отчество: не выбрано";
+    public static final String NUMBER_PHONE = "Номер телефона: не выбрано";
+    public static final String DATE_BORN = "Дата рождения: не выбрано";
+    public static final String CITY = "Город: не выбрано";
+
     private FragmentProfileBinding binding;
     private TextView txtSurname, txtName, txtFathername;
     private TextView txtEmail, txtDateBirth, txtNumber, txtCity;
@@ -47,6 +54,13 @@ public class ProfileFragment extends Fragment {
 
     private View root;
     private List<User> users;
+    private String surname;
+    private String name;
+    private String fathername;
+    private String numberPhone;
+    private String city;
+    private String dateBirth;
+    private User user;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +70,7 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         root = binding.getRoot();
         initComponents();
+        initDataUser();
         return root;
     }
 
@@ -64,11 +79,6 @@ public class ProfileFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setCustomView(R.layout.toolbar_title_profile_fragment);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_bratishka);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        SharedPreferences preferences
-                = root.getContext().getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
-        String email = preferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
-
         this.txtSurname = root.findViewById(R.id.surnameUser);
         this.txtName = root.findViewById(R.id.nameUser);
         this.txtFathername = root.findViewById(R.id.fathernameUser);
@@ -77,43 +87,73 @@ public class ProfileFragment extends Fragment {
         this.txtNumber = root.findViewById(R.id.numberPhoneUser);
         this.txtCity = root.findViewById(R.id.cityUser);
         this.img = root.findViewById(R.id.imgUser);
+    }
+
+    private void initDataUser() {
+        SharedPreferences preferences
+                = root.getContext().getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
+        String email = preferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
 
         NetworkService.getInstance().getBratishkaApi().getProfile(email)
-                .enqueue(new Callback<List<User>>() {
+                .enqueue(new Callback<User>() {
                     @Override
-                    public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                        users = response.body();
+                    public void onResponse(Call<User> call,
+                                           Response<User> response) {
+                        user = response.body();
                         txtEmail.setText(email);
+                        surname = user.getSurname();
+                        name = user.getName();
+                        fathername = user.getFathername();
+                        numberPhone = user.getNumberPhone();
+                        city = user.getCity();
 
-                        for (User user : users) {
-                            try {
-                                String surname = user.getSurname();
-                                txtSurname.setText(surname);
-                                String name = user.getName();
-                                txtName.setText(name);
-                                String fathername = user.getFathername();
-                                txtFathername.setText(fathername);
-                                String city = user.getCity();
-                                txtCity.setText(city);
-                                String phone = user.getNumberPhone();
-                                txtNumber.setText(phone);
-                            } catch (NullPointerException e) {
-                                e.printStackTrace();
-                            }
+                        try {
+                            dateBirth = user.getDateBirth();
+                            txtDateBirth.setText(dateBirth);
+                        } catch (ParseException | NullPointerException e) {
+                            txtDateBirth.setText(DATE_BORN);
+                            e.printStackTrace();
+                        }
 
-                            try {
-                                String dateBirth = user.getDateBirth();
-                                txtDateBirth.setText(dateBirth);
-                            } catch (ParseException | NullPointerException e) {
-                                e.printStackTrace();
-                                txtDateBirth.setText("");
-                            }
+                        try {
+                            txtSurname.setText(surname);
+
+                        } catch (NullPointerException e){
+                            e.printStackTrace();
+                            txtSurname.setText(SURNAME);
+                        }
+
+                        try {
+                            txtName.setText(name);
+                        } catch (NullPointerException e){
+                            e.printStackTrace();
+                            txtName.setText(NAME);
+                        }
+
+                        try {
+                            txtFathername.setText(fathername);
+                        } catch (NullPointerException e){
+                            e.printStackTrace();
+                            txtFathername.setText(FATHERNAME);
+                        }
+
+                        try {
+                            txtNumber.setText(numberPhone);
+                        } catch (NullPointerException e){
+                            e.printStackTrace();
+                            txtNumber.setText(NUMBER_PHONE);
+                        }
+
+                        try {
+                            txtCity.setText(city);
+                        } catch (NullPointerException e){
+                            txtCity.setText(CITY);
                         }
 
                     }
 
                     @Override
-                    public void onFailure(Call<List<User>> call, Throwable t) {
+                    public void onFailure(Call<User> call, Throwable t) {
                         Toast.makeText(root.getContext(), "Error!", Toast.LENGTH_SHORT).show();
                         t.fillInStackTrace();
                     }
@@ -130,6 +170,8 @@ public class ProfileFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.edit_profile_id) {
             Intent intent = new Intent(this.getActivity(), EditProfileActivity.class);
+            intent.putExtra("user", user);
+
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -138,7 +180,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        initDataUser();
     }
 
     @Override

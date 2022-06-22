@@ -12,13 +12,13 @@ public class ViewPagerEntries extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private ArrayList<String> titles= new ArrayList<>();
 
+    public ViewPagerEntries(@NonNull FragmentManager fm) {
+        super(fm);
+    }
+
     public void addFragment(Fragment fragment, String title){
         fragments.add(fragment);
         titles.add(title);
-    }
-
-    public ViewPagerEntries(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
     }
 
     @NonNull

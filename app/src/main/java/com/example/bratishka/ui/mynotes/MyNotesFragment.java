@@ -26,12 +26,8 @@ import com.example.bratishka.model.Record;
 import com.example.bratishka.repository.NetworkService;
 import com.example.bratishka.util.Constants;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -107,7 +103,6 @@ public class MyNotesFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<List<Record>> call, Throwable t) {
-                        Toast.makeText(getContext(), "Error!", Toast.LENGTH_SHORT).show();
                         t.fillInStackTrace();
                     }
                 });
@@ -119,4 +114,9 @@ public class MyNotesFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(MyNotesViewModel.class);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initRecords();
+    }
 }
