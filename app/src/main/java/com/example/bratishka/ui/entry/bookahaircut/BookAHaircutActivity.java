@@ -2,17 +2,13 @@ package com.example.bratishka.ui.entry.bookahaircut;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -32,7 +28,6 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -77,7 +72,6 @@ public class BookAHaircutActivity extends AppCompatActivity {
         this.textViewName = findViewById(R.id.productDescription);
         this.textViewPrice.setText(this.haircut.getPrice());
         this.textViewName.setText(this.haircut.getName());
-
     }
 
     private void initTabLayoutAndViewPager() {
@@ -85,7 +79,9 @@ public class BookAHaircutActivity extends AppCompatActivity {
         this.viewPager = findViewById(R.id.viewPagerEntry);
         this.tabLayout.setupWithViewPager(viewPager);
 
-        ViewPagerEntries viewPagerEntries = new ViewPagerEntries(getSupportFragmentManager());
+        ViewPagerEntries viewPagerEntries = new ViewPagerEntries(
+                getSupportFragmentManager(),
+                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPagerEntries.addFragment(new ByAppointmentFragment(), "По записи");
         viewPagerEntries.addFragment(new LiveQueueFragment(), "Живая очередь");
         viewPager.setAdapter(viewPagerEntries);
@@ -120,7 +116,6 @@ public class BookAHaircutActivity extends AppCompatActivity {
                                 bundle.putInt("idBranch", idBranch);
                                 fragment.setArguments(bundle);
                                 transaction.replace(R.id.flLayout, fragment).commit();
-
                             }
 
                             @Override
@@ -188,4 +183,7 @@ public class BookAHaircutActivity extends AppCompatActivity {
         });
     }
 
+    private void buttonRecord() {
+
+    }
 }

@@ -119,6 +119,10 @@ public class EditProfileActivity extends AppCompatActivity {
 
         try {
             this.txtDateBirth.setText(this.user.getDateBirth());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date parse = dateFormat.parse(this.user.getDateBirth());
+            SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+            this.format = dateFormat1.format(parse);
         } catch (Exception e) {
             this.txtDateBirth.setText(ProfileFragment.DATE_BORN);
         }
@@ -191,8 +195,10 @@ public class EditProfileActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.clear();
                                     editor.apply();
-                                    finish();
-                                    Toast.makeText(EditProfileActivity.this, resp.toString(), Toast.LENGTH_SHORT).show();
+                                    finishAffinity();
+                                    Intent intent = new Intent(EditProfileActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    //Toast.makeText(EditProfileActivity.this, resp.toString(), Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -214,12 +220,6 @@ public class EditProfileActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences
                 = getSharedPreferences(Constants.PREFERENCES_USER, MODE_PRIVATE);
         String email = sharedPreferences.getString(Constants.PREFERENCES_USER_EMAIL, null);
-
-        String surname = this.edtSurname.getText().toString();
-        String name = this.edtName.getText().toString();
-        String fathername = this.edtFathername.getText().toString();
-        String number = this.edtNumber.getText().toString();
-        String city = this.edtCity.getText().toString();
 
         this.txtDateBirth.setOnClickListener(vDateBorn -> {
             Calendar calendar = Calendar.getInstance();

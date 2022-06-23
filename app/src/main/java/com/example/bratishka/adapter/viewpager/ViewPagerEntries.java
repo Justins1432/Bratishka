@@ -1,5 +1,7 @@
 package com.example.bratishka.adapter.viewpager;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -11,10 +13,12 @@ import java.util.ArrayList;
 public class ViewPagerEntries extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private ArrayList<String> titles= new ArrayList<>();
+    private Context context;
 
-    public ViewPagerEntries(@NonNull FragmentManager fm) {
-        super(fm);
+    public ViewPagerEntries(@NonNull FragmentManager fm, int behavior) {
+        super(fm, behavior);
     }
+
 
     public void addFragment(Fragment fragment, String title){
         fragments.add(fragment);
