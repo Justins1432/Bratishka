@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -37,10 +38,8 @@ import retrofit2.Response;
 
 public class BookAHaircutActivity extends AppCompatActivity {
     public static final String NAME_HAIRCUT = "name_haircut";
-    private TextView textViewPrice, textViewName;
+    private TextView textViewPrice, textViewName, txtLiveRecord;
     private Haircut haircut;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
     private Spinner spinner;
     private Button btnRecord;
     private List<Branch> branches;
@@ -63,28 +62,16 @@ public class BookAHaircutActivity extends AppCompatActivity {
         this.haircut = (Haircut) this.getIntent().getSerializableExtra(NAME_HAIRCUT);
         this.btnRecord = findViewById(R.id.payButton);
         initTextView();
-        initTabLayoutAndViewPager();
+        initLiveQueueRecord();
         initSpinner();
     }
 
     private void initTextView() {
         this.textViewPrice = findViewById(R.id.productPrice);
         this.textViewName = findViewById(R.id.productDescription);
+        this.txtLiveRecord = findViewById(R.id.liveQueueActivity);
         this.textViewPrice.setText(this.haircut.getPrice());
         this.textViewName.setText(this.haircut.getName());
-    }
-
-    private void initTabLayoutAndViewPager() {
-        this.tabLayout = findViewById(R.id.tabLayoutEntry);
-        this.viewPager = findViewById(R.id.viewPagerEntry);
-        this.tabLayout.setupWithViewPager(viewPager);
-
-        ViewPagerEntries viewPagerEntries = new ViewPagerEntries(
-                getSupportFragmentManager(),
-                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPagerEntries.addFragment(new ByAppointmentFragment(), "По записи");
-        viewPagerEntries.addFragment(new LiveQueueFragment(), "Живая очередь");
-        viewPager.setAdapter(viewPagerEntries);
     }
 
     private void initSpinner() {
@@ -183,7 +170,15 @@ public class BookAHaircutActivity extends AppCompatActivity {
         });
     }
 
-    private void buttonRecord() {
-
+    private void initLiveQueueRecord() {
+        this.txtLiveRecord.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LiveQueueActivity.class);
+            intent.putExtra(LiveQueueActivity.NAME_HAIRCUT_LIVE, haircut);
+            String name = this.haircut.getName();
+            String price = this.haircut.getPrice();
+            intent.putExtra("price", price);
+            intent.putExtra("haircut", name);
+            startActivity(intent);
+        });
     }
 }

@@ -41,7 +41,7 @@ public class SchedulesAdapter extends RecyclerView.Adapter<SchedulesAdapter.Sche
     public void onBindViewHolder(@NonNull SchedulesAdapter.SchedulesViewHolder holder, int position) {
         String s = this.strings.get(position);
         //holder.txtTimeSchedule.setText(schedule.);
-        holder.view.setBackgroundColor(selectedPosition == position ? Color.GREEN : Color.TRANSPARENT);
+        holder.view.setBackgroundColor(selectedPosition == position ? Color.BLUE : Color.TRANSPARENT);
         holder.txtTimeSchedule.setText(s);
 
     }

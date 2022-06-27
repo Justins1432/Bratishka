@@ -78,24 +78,6 @@ public interface Bratishka {
                            @Query("city") String city,
                            @Query("number_phone") String number);
 
-    /*@GET("/bratishka/updateSurname.php")
-    Call<Resp> updSurname(@Query("email") String email, @Query("surname") String surname);
-
-    @GET("/bratishka/updateName.php")
-    Call<Resp> updName(@Query("email") String email, @Query("name") String name);
-
-    @GET("/bratishka/updateFathername.php")
-    Call<Resp> updFathername(@Query("email") String email, @Query("fathername") String fathername);
-
-    @GET("/bratishka/updateDateBorn.php")
-    Call<Resp> updDateBorn(@Query("email") String email, @Query("dateBorn") String dateBorn);
-
-    @GET("/bratishka/updateNumber.php")
-    Call<Resp> updNumber(@Query("email") String email, @Query("number") String number);
-
-    @GET("/bratishka/updateCity.php")
-    Call<Resp> updCity(@Query("email") String email, @Query("city") String city);*/
-
     @GET("/bratishka/addRecord.php")
     Call<Resp> addRecord(@Query("date_record") String date,
                          @Query("user_email") String email,
@@ -107,5 +89,13 @@ public interface Bratishka {
 
     @GET("/bratishka/getRecords.php")
     Call<List<Record>> getRecords(@Query("user_email") String email);
+
+    @GET("/bratishka/liveQueueRecord.php")
+    Call<Resp> addLiveQueueRecord(@Query("date_record") String date,
+                                  @Query("user_email") String email,
+                                  @Query("branch_id") int branchID,
+                                  @Query("h_name") String h_name,
+                                  @Query("h_price") String h_price,
+                                  @Query("schedule") String schedule);
 
 }

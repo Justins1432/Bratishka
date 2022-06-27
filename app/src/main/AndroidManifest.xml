@@ -16,7 +16,9 @@
         android:theme="@style/Theme.Bratishka"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.entry.bookahaircut.LiveQueueActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.entry.addtobasket.AddProductBasketActivity"
             android:exported="false" />
