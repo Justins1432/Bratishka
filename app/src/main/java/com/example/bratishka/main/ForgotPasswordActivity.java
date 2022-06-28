@@ -12,14 +12,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bratishka.R;
+import com.example.bratishka.model.Resp;
+import com.example.bratishka.repository.NetworkService;
 import com.google.android.material.textfield.TextInputEditText;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
-    private EditText edtInputNumber;
+    private EditText edtInputEmail, edtInputCode;
     private TextInputEditText newInputPass;
     private TextInputEditText rptInputPass;
-    private TextView txtGetCode;
+    private TextView txtGetCode, txtForgotUser;
     private Button btnApply;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +41,12 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         this.getSupportActionBar().setCustomView(R.layout.toolbar_title_forgot_pass);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.edtInputNumber = findViewById(R.id.inputNumber);
+        this.edtInputEmail = findViewById(R.id.inputEmail);
+        this.edtInputCode = findViewById(R.id.inputCode);
         this.newInputPass = findViewById(R.id.newPassword);
         this.rptInputPass = findViewById(R.id.repeatPassword);
         this.txtGetCode = findViewById(R.id.getCode);
+        this.txtForgotUser = findViewById(R.id.emailForgotUser);
         this.btnApply = findViewById(R.id.applyBtn);
 
         getCode();
@@ -46,14 +55,65 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private void getCode() {
         this.txtGetCode.setOnClickListener(view -> {
-            int textNull = R.string.text_null;
-            Toast.makeText(this, textNull, Toast.LENGTH_SHORT).show();
+            email = this.edtInputEmail.getText().toString();
+            if (!email.equals("")) {
+                NetworkService.getInstance().getBratishkaApi().getCode(email)
+                        .enqueue(new Callback<Resp>() {
+                            @Override
+                            public void onResponse(Call<Resp> call, Response<Resp> response) {
+                                Resp resp = response.body();
+                                txtForgotUser.setText(email);
+                                if (resp.getStatus().equals("success")) {
+                                    Toast.makeText(ForgotPasswordActivity.this, "Код отправлен на " + email, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(ForgotPasswordActivity.this, resp.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Resp> call, Throwable t) {
+                                Toast.makeText(ForgotPasswordActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                                t.fillInStackTrace();
+                            }
+                        });
+            } else {
+                int textNull = R.string.text_null;
+                Toast.makeText(this, textNull, Toast.LENGTH_SHORT).show();
+            }
+
+
         });
     }
 
     private void buttonApply() {
         this.btnApply.setOnClickListener(view -> {
-            //Восстановление доступа
+            String code = this.edtInputCode.getText().toString();
+            String nPass = this.newInputPass.getText().toString();
+            String rPass = this.rptInputPass.getText().toString();
+
+            NetworkService.getInstance().getBratishkaApi().getRecovery(email, code, nPass)
+                    .enqueue(new Callback<Resp>() {
+                        @Override
+                        public void onResponse(Call<Resp> call, Response<Resp> response) {
+                            Resp resp = response.body();
+
+                            if (code.isEmpty()){
+                                Toast.makeText(ForgotPasswordActivity.this, "Поле Код пустое!", Toast.LENGTH_SHORT).show();
+                            } else if (!nPass.equals(rPass)){
+                                Toast.makeText(ForgotPasswordActivity.this, "Пароли не совпадают!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(ForgotPasswordActivity.this, resp.toString(), Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Resp> call, Throwable t) {
+                            Toast.makeText(ForgotPasswordActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                            t.fillInStackTrace();
+                        }
+                    });
+
         });
     }
 
@@ -65,4 +125,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

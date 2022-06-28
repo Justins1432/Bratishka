@@ -12,7 +12,7 @@
     <string name="change_pass_text">СМЕНИТЬ ПАРОЛЬ</string>
     <string name="code_text">Код</string>
     <string name="get_the_code_text"><u>Получить код</u></string>
-    <string name="forgot_txt_information">Вам придет код в смс сообщении по вашему номеру</string>
+    <string name="forgot_txt_information">Вам придет код на электронную почту</string>
     <string name="new_input_new_pass_text">Новый пароль</string>
     <string name="repeat_the_pass_text">Повторите пароль</string>
     <string name="apply_text">Применить</string>

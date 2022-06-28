@@ -186,7 +186,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                 if (code.isEmpty()) {
                                     Toast.makeText(EditProfileActivity.this, "Поле ввода кода пустое!", Toast.LENGTH_SHORT).show();
                                 } else if (!newPassword.equals(repeatPassword)) {
-                                    Toast.makeText(EditProfileActivity.this, "Пароли не соответсвуют, повторите ввод", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EditProfileActivity.this, "Пароли не соответствуют, повторите ввод", Toast.LENGTH_SHORT).show();
                                 } else if (resp.getStatus().equals("error")) {
                                     Toast.makeText(EditProfileActivity.this, resp.getStatus(), Toast.LENGTH_SHORT).show();
                                 } else {
